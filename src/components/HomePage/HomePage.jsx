@@ -5,7 +5,7 @@ import "./HomePage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Homepage({ setBooks, books, details, setDetails }) {
+function Homepage({ setBooks, books}) {
   const [search, setSearch] = useState("");
   
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function Homepage({ setBooks, books, details, setDetails }) {
 
   function handleClick(e) {
     e.preventDefault();
-    fetch("http://openlibrary.org/search.json?title=" + search.replace(' ', '+')+'&limit=3&fields=key,author_name,cover_i,title')
+    fetch("http://openlibrary.org/search.json?title=" + search.replace(' ', '+')+'&limit=5&fields=key,author_name,cover_i,title')
       .then((response) => response.json())
       .then((bookData) => {
         console.log("Book data ->", bookData);
