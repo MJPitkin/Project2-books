@@ -20,7 +20,7 @@ function App() {
           element={<Homepage setBooks={setBooks} books={books} />}
         />
         <Route path="/results" element={<ResultsPage books={books} />} />
-        <Route path="/works/:id" element={<DetailsPage />} />
+        <Route path="/works/:id" element={<DetailsPage books={books}/>} />
       </Routes>
       {/* 
       {books.map((book) => (

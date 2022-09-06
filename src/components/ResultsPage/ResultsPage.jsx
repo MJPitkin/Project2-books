@@ -18,7 +18,7 @@ console.log(books[0])
 // })
 // console.log(bookDetails);
   // if(books.length === 0) navigate("/") or leave the decision with user.
-  return <div><Header />{books.map((e) => (<Result book={e} />))}<Footer /></div>;
+  return <div><Header />{books.map((e) => (<Result book={e} key={e.key}/>))}<Footer /></div>;
 }
 
 export default ResultsPage;
