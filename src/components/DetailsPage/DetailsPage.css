@@ -1,0 +1,11 @@
+#detailsWrapper {
+    display: flex;
+}
+
+#description {
+    margin: 20px;
+}
+
+#cover {
+    margin: 10px;
+}

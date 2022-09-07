@@ -1,0 +1,16 @@
+.resultItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
+.resultImage {
+    max-height: 150px;
+    max-width: 100px;
+}
+
+.resultTitle {
+    width: 15%;
+    text-align: center;
+}

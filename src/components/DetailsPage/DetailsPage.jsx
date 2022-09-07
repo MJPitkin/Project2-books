@@ -1,5 +1,8 @@
 import React, { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import './DetailsPage.css'
 
 function DetailsPage() {
   const [details, setDetails] = useState([])
@@ -20,19 +23,26 @@ function DetailsPage() {
   console.log(details)
   console.log(author)
   return (
-    <div id="details-container">
-      <div id="cover">
-        {details.covers === undefined ? "no image available" : <img src={`https://covers.openlibrary.org/b/id/${details.covers[0]}-L.jpg`} alt='Book Cover' />}
-      </div>
+    <>
+    <Header/>
+    <div id="detailsWrapper">
+      
+      
+        <div id="cover">
+         {details.covers === undefined ? "no image available" : <img src={`https://covers.openlibrary.org/b/id/${details.covers[0]}-L.jpg`} alt='Book Cover' />}
+        </div>
 
-      <div id="description">
-        {details.title}
-        {author.name}
-        {details.description === undefined ? "No Description Available." : (
-          typeof details.description === 'object' ? details.description.value : details.description
-        )}
-      </div>
+        <div id="description">
+         <h3>{details.title}</h3>
+         <h4>{author.name}</h4>
+         <p>{details.description === undefined ? "No Description Available." : (
+            typeof details.description === 'object' ? details.description.value : details.description
+          )}</p>
+        </div>
+      
     </div>
+    <Footer/>
+    </>
   )}
   
 //   if ( typeof details.description === 'string' && details.covers === undefined) {

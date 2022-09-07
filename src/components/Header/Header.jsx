@@ -4,8 +4,7 @@ import "./Header.css";
 function Header() {
   return (
     <header>
-      <p> Books logo</p>
-      <p>Reading list</p>
+      <h1> Books logo</h1>
     </header>
   );
 }

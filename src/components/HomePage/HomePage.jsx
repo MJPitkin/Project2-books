@@ -3,57 +3,32 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import "./HomePage.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Homepage({ setBooks, books}) {
   const [search, setSearch] = useState("");
   
   const navigate = useNavigate();
 
-  // fetch("https://covers/openlibrary.org/b/id/" + books[0].cover_i + "-L.jpg")
-  //   .then((response) => response.blob())
-  //   .then(coverImage => {
-  //     const localUrl = URL.createObjectURL(coverImage);
-  //     setCoverImageData(localUrl);
-  //   })
-  //   .catch(console.error);
-
   function handleClick(e) {
     e.preventDefault();
-    fetch("http://openlibrary.org/search.json?title=" + search.replace(' ', '+')+'&limit=5&fields=key,author_name,cover_i,title')
+    fetch("http://openlibrary.org/search.json?title=" + search.replace(' ', '+')+'&limit=10&fields=key,author_name,cover_i,title')
       .then((response) => response.json())
       .then((bookData) => {
         console.log("Book data ->", bookData);
         setBooks(bookData.docs);
         console.log(books);
-        // return fetch('http://openlibrary.org'+bookData.docs[0].key+'.json')
-        // setCoverImageData(bookData.docs.map((e) => e.cover_i));
-        // Now go to /results  -> programatically changing route
         navigate("/results");
       })
-      // .then((response) => response.json())
-      // .then((detailData) => {
-      //   console.log(detailData);
-      //   setDetails(detailData.docs);
-      // })
       .catch(console.error);
   }
-
-  // function fetchImage() {
-  //   fetch("https://covers.openlibrary.org/b/id/" + books[0].cover_i + "-L.jpg")
-  //       .then((response) => response.blob())
-  //     .then(coverImage => {
-  //       const localUrl = URL.createObjectURL(coverImage);
-  //       setCoverImageData(localUrl);
-  //     })
-  // }
   
 
   return (
-    <div>
+    <div id="homepageWrapper">
       <Header />
       
-      <form>
+      <form id="searchBar">
         <input
           onChange={(e) => setSearch(e.target.value)}
           type="text"
@@ -62,16 +37,32 @@ function Homepage({ setBooks, books}) {
           value={search}
         />
 
-        <button onClick={handleClick}>🔎</button>
+        <button id="searchButton" onClick={handleClick}>🔎</button>
       </form>
 
       {/* so that'd be an input and presumably a button to call a function to initiate a fetch and filter based on what's written */}
       <h2>Featured Books</h2>
-      <p>Featured books go here</p>
+      <section id="featuredBooks">
+        <div className='featuredItem'>
+          <img className='featuredImage' src='https://covers.openlibrary.org/b/id/6805384-M.jpg' alt='Book Cover' />
+          <h4 className='featuredTitle'><Link to='/works/OL15842033W'>Chasm City</Link></h4>
+          <h5 className='featuredAuthor'>Alastair Reynolds</h5>
+        </div>
+        <div className='featuredItem'>
+          <img className='featuredImage' src='https://covers.openlibrary.org/b/id/6805384-M.jpg' alt='Book Cover' />
+          <h4 className='featuredTitle'><Link to='/works/OL15842033W'>Chasm City</Link></h4>
+          <h5 className='featuredAuthor'>Alastair Reynolds</h5>
+        </div>
+        <div className='featuredItem'>
+          <img className='featuredImage' src='https://covers.openlibrary.org/b/id/6805384-M.jpg' alt='Book Cover' />
+          <h4 className='featuredTitle'><Link to='/works/OL15842033W'>Chasm City</Link></h4>
+          <h5 className='featuredAuthor'>Alastair Reynolds</h5>
+        </div>
+      </section>
       {/* just a fixed thing we decide on, nothing special */}
 
       {/* how to track recently viewed... possibly something with useParams */}
-      <Footer />
+      <Footer/>
     </div>
   );
 }
