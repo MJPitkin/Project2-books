@@ -69,8 +69,7 @@ function Homepage({ setBooks, books}) {
       <h2>Featured Books</h2>
       <p>Featured books go here</p>
       {/* just a fixed thing we decide on, nothing special */}
-      <h2>Recently Viewed</h2>
-      <p>Recently viewed books go here</p>
+
       {/* how to track recently viewed... possibly something with useParams */}
       <Footer />
     </div>

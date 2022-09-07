@@ -5,7 +5,8 @@ function Footer() {
   return (
     <footer>
       <p>Contact Us</p>
-      <p>Socials</p>
+      <p>Socials </p>
+      {/* dummy imgs for facebook and twitter */}
     </footer>
   );
 }

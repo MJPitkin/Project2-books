@@ -5,7 +5,7 @@ function Result(book, coverImageData) {
   console.log(book)
   console.log(coverImageData)
   return (
-    <div><img src={`https://covers.openlibrary.org/b/id/${book.book.cover_i}-L.jpg`}/><h4><Link to={`${book.book.key}`} key={book.book.key}>{book.book.title}</Link></h4><h5>{book.book.author_name}</h5></div>
+    <div><img src={`https://covers.openlibrary.org/b/id/${book.book.cover_i}-L.jpg`} alt='Book Cover' /><h4><Link to={`${book.book.key}`} key={book.book.key}>{book.book.title}</Link></h4><h5>{book.book.author_name[0]}</h5></div>
   )
 }
 
