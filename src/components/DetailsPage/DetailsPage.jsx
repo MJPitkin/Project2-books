@@ -19,19 +19,35 @@ function DetailsPage() {
   },[])
   console.log(details)
   console.log(author)
-  if ( typeof details.description === 'string' && details.covers[0] === undefined) {
-    return <div>no image available {details.title} {author.name} {details.description}</div>
-  } else if (typeof details.description === 'string') {
-    return <div><img src={`https://covers.openlibrary.org/b/id/${details.covers[0]}-L.jpg`} alt='Book Cover' /> {details.title} {author.name} {details.description}</div>
-  } else if (typeof details.description === 'object' && details.covers[0] === undefined) {
-    return <div>no image available { details.title } { author.name } { details.description.value }</div>
-  } else if (typeof details.description === 'object'){
-    return <div><img src={`https://covers.openlibrary.org/b/id/${details.covers[0]}-L.jpg`} alt='Book Cover' />{details.title} {author.name} {details.description.value}</div>
-  } else if (details.description === undefined && details.covers === undefined){
-    return <div>whoops no image {details.title} {author.name} No Description Available.</div>
-  } else if (details.description === undefined) {
-    return <div><img src={`https://covers.openlibrary.org/b/id/${details.covers[0]}-L.jpg`} alt='Book Cover' /> {details.title} {author.name} No Description Available.</div>}
-}
+  return (
+    <div id="details-container">
+      <div id="cover">
+        {details.covers === undefined ? "no image available" : <img src={`https://covers.openlibrary.org/b/id/${details.covers[0]}-L.jpg`} alt='Book Cover' />}
+      </div>
+
+      <div id="description">
+        {details.title}
+        {author.name}
+        {details.description === undefined ? "No Description Available." : (
+          typeof details.description === 'object' ? details.description.value : details.description
+        )}
+      </div>
+    </div>
+  )}
+  
+//   if ( typeof details.description === 'string' && details.covers === undefined) {
+//     return <div>no image available {details.title} {author.name} {details.description}</div>
+//   } else if (typeof details.description === 'string') {
+//     return <div><img src={`https://covers.openlibrary.org/b/id/${details.covers[0]}-L.jpg`} alt='Book Cover' /> {details.title} {author.name} {details.description}</div>
+//   } else if (typeof details.description === 'object' && details.covers === undefined) {
+//     return <div>no image available { details.title } { author.name } { details.description.value }</div>
+//   } else if (typeof details.description === 'object'){
+//     return <div><img src={`https://covers.openlibrary.org/b/id/${details.covers[0]}-L.jpg`} alt='Book Cover' />{details.title} {author.name} {details.description.value}</div>
+//   } else if (details.description === undefined && details.covers === undefined){
+//     return <div>No Image Available. {details.title} {author.name} No Description Available.</div>
+//   } else if (details.description === undefined) {
+//     return <div><img src={`https://covers.openlibrary.org/b/id/${details.covers[0]}-L.jpg`} alt='Book Cover' /> {details.title} {author.name} No Description Available.</div>}
+// }
 
 
 export default DetailsPage;
