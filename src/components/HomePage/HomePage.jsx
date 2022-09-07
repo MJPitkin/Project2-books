@@ -29,11 +29,13 @@ function Homepage({ setBooks, books}) {
       <Header />
       
       <form id="searchBar">
+        <label for='searchInput'>Input the title of the book you're looking for here!</label>
         <input
+          id="searchInput"
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           name="search"
-          placeholder="Search"
+          placeholder="Search by title"
           value={search}
         />
 
@@ -49,14 +51,14 @@ function Homepage({ setBooks, books}) {
           <h5 className='featuredAuthor'>Alastair Reynolds</h5>
         </div>
         <div className='featuredItem'>
-          <img className='featuredImage' src='https://covers.openlibrary.org/b/id/6805384-M.jpg' alt='Book Cover' />
-          <h4 className='featuredTitle'><Link to='/works/OL15842033W'>Chasm City</Link></h4>
-          <h5 className='featuredAuthor'>Alastair Reynolds</h5>
+          <img className='featuredImage' src='https://covers.openlibrary.org/b/id/6450442-M.jpg' alt='Book Cover' />
+          <h4 className='featuredTitle'><Link to='/works/OL32197W'>House of Leaves</Link></h4>
+          <h5 className='featuredAuthor'>Mark Z. Danielewski</h5>
         </div>
         <div className='featuredItem'>
-          <img className='featuredImage' src='https://covers.openlibrary.org/b/id/6805384-M.jpg' alt='Book Cover' />
-          <h4 className='featuredTitle'><Link to='/works/OL15842033W'>Chasm City</Link></h4>
-          <h5 className='featuredAuthor'>Alastair Reynolds</h5>
+          <img className='featuredImage' src='https://covers.openlibrary.org/b/id/11464254-M.jpg' alt='Book Cover' />
+          <h4 className='featuredTitle'><Link to='/works/OL2163649W'>The Hitch Hiker's Guide to the Galaxy</Link></h4>
+          <h5 className='featuredAuthor'>Douglas Adams</h5>
         </div>
       </section>
       {/* just a fixed thing we decide on, nothing special */}

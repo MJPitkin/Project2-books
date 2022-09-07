@@ -21,7 +21,27 @@ h2 {
 }
 
 .featuredItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    max-width: 150px;
 }
 
+.featuredImage {
+    max-width: 150px;
+    max-height: 200px;
+}
 
+#searchBar {
+    margin: 20px;
+}
+
+label {
+    display: none;
+}
+
+input {
+    margin: 10px;
+}
