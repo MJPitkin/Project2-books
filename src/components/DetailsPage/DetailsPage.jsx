@@ -19,7 +19,7 @@ function DetailsPage() {
     .then((response) => response.json())
     .then((authorData) => setAuthor(authorData))
     .catch(console.error)
-  },[])
+  },[params.id])
   console.log(details)
   console.log(author)
   return (
