@@ -12,7 +12,7 @@ function Homepage({ setBooks, books}) {
 
   function handleClick(e) {
     e.preventDefault();
-    fetch("http://openlibrary.org/search.json?title=" + search.replace(' ', '+')+'&limit=10&fields=key,author_name,cover_i,title')
+    fetch("https://openlibrary.org/search.json?title=" + search.replace(' ', '+')+'&limit=10&fields=key,author_name,cover_i,title')
       .then((response) => response.json())
       .then((bookData) => {
         console.log("Book data ->", bookData);

@@ -10,11 +10,11 @@ function DetailsPage() {
   console.log(useParams());
   const params = useParams();
   useEffect(() => {
-    fetch(`http://openlibrary.org/works/${params.id}.json`)
+    fetch(`https://openlibrary.org/works/${params.id}.json`)
     .then((response) => response.json())
     .then((detailData) => {
       setDetails(detailData);
-      return fetch(`http://openlibrary.org${detailData.authors[0].author.key}.json`)
+      return fetch(`https://openlibrary.org${detailData.authors[0].author.key}.json`)
     })
     .then((response) => response.json())
     .then((authorData) => setAuthor(authorData))
