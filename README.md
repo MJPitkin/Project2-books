@@ -44,6 +44,8 @@ Your app must:
 
 # Planning
 
+![project 2 wireframe](images/wireframe.png)
+
 The initial plan was to have four major page components; the homepage with a search bar, featured books (manually selected by ourselves), and books the user had recently viewed, the results list that presented the user with the results of their search, the individual detail pages that provided more information on specific books, and finally the reading list page where books the user had added to the list could be referred back to. When the team split the scope of the project had to be reduced, leading to the recently viewed element and the reading list page getting axed.
 
 During the initial stages of the project we had also made use of a Trello board to organise ourselves and designate tasks, which up until the split had worked well.
@@ -97,6 +99,8 @@ return (
 ```
 
 After much debugging of the error handling code I then had an app that was essentially functional. All that was left was applying some basic CSS to neaten various components up.
+
+![Final website](images/finalwebsite.png)
 
 # Challenges
 
